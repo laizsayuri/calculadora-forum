@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculadora.HistoryPage">
+    <ContentPage.Content>
+        <StackLayout Padding="0" BackgroundColor="#e4e8f1">
+
+            <ImageButton
+                Source="trash_icon.png"
+                BackgroundColor="#e4e8f1"
+                HorizontalOptions="End"                
+                WidthRequest="30"
+                Margin="20"
+                Clicked="ClearHistoriesButtonClicked"/>
+
+            <Label x:Name="EmptyLabel"    
+                IsVisible="false"
+                Text="Ainda não há histórico"
+                TextColor="#597189" 
+                Margin="15"
+                FontSize="15" 
+                VerticalTextAlignment="Start" 
+                HorizontalOptions="Center"></Label>
+
+            <ListView x:Name="ResultList" ItemsSource="{Binding Results}" SelectionMode="None" Margin="20, 0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="50">
+                            <StackLayout Margin="5">
+                                <Label 
+                                    Text="{Binding Result}" 
+                                    TextColor="#597189" 
+                                    FontSize="25" 
+                                    VerticalTextAlignment="Center" 
+                                    HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
